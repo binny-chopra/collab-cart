@@ -4,6 +4,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import InfluencerDashboard from "./influencerDashboard/InfluencerDashboard";
 import CompanyDashboard from "./companyDashboard/CompanyDashboard";
+import CompanyCampaigns from "./companyDashboard/CompanyCampaigns";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -26,6 +27,10 @@ const Body = () => {
     {
       path: "/company-dashboard",
       element: <CompanyDashboard />,
+    },
+    {
+      path: "/company-campaigns",
+      element: <CompanyCampaigns />,
     },
   ]);
 
