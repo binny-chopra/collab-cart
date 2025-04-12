@@ -29,7 +29,7 @@ const CompanyDashboardNav = () => {
         Company Profile
       </NavLink>
       <NavLink
-        to="/company-campaigns"
+        to="/blah blah"
         className={({ isActive }) =>
           `px-3 py-2 text-sm font-medium ${
             isActive
