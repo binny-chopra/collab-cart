@@ -4,7 +4,7 @@ const DashboardNav = () => {
   return (
     <nav className="flex space-x-4 mb-6 border-b pb-2">
       <NavLink
-        to="/dashboard"
+        to="/influencer-dashboard"
         end
         className={({ isActive }) =>
           `px-3 py-2 text-sm font-medium ${
@@ -17,7 +17,7 @@ const DashboardNav = () => {
         Overview
       </NavLink>
       <NavLink
-        to="/dashboard/profile"
+        to="/influencer-dashboard/profile"
         className={({ isActive }) =>
           `px-3 py-2 text-sm font-medium ${
             isActive
@@ -29,7 +29,7 @@ const DashboardNav = () => {
         Profile
       </NavLink>
       <NavLink
-        to="/dashboard/social-accounts"
+        to="/influencer-dashboard/social-accounts"
         className={({ isActive }) =>
           `px-3 py-2 text-sm font-medium ${
             isActive
@@ -41,7 +41,7 @@ const DashboardNav = () => {
         Social Accounts
       </NavLink>
       <NavLink
-        to="/dashboard/opportunities"
+        to="/influencer-dashboard/opportunities"
         className={({ isActive }) =>
           `px-3 py-2 text-sm font-medium ${
             isActive
