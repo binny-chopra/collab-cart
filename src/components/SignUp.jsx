@@ -1,8 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const [accountType, setAccountType] = useState("company");
+
+  const [formData, setFormData] = useState({
+    companyName: "",
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  // Reset form when switching account type
+  useEffect(() => {
+    setFormData({
+      companyName: "",
+      username: "",
+      email: "",
+      password: "",
+    });
+  }, [accountType]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -16,23 +38,14 @@ export default function SignUp() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             <span className="sr-only">Back</span>
           </Link>
         </div>
 
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Create an account
-        </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Enter your information to create an account
-        </p>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create an account</h2>
+        <p className="mt-2 text-center text-sm text-gray-600">Enter your information to create an account</p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -69,6 +82,8 @@ export default function SignUp() {
                     id="companyName"
                     name="companyName"
                     type="text"
+                    value={formData.companyName}
+                    onChange={handleChange}
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
                   />
@@ -81,6 +96,8 @@ export default function SignUp() {
                     id="email"
                     name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
                   />
@@ -96,6 +113,8 @@ export default function SignUp() {
                     id="username"
                     name="username"
                     type="text"
+                    value={formData.username}
+                    onChange={handleChange}
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
                   />
@@ -108,12 +127,30 @@ export default function SignUp() {
                     id="email"
                     name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
                   />
                 </div>
               </>
             )}
+
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                minLength={6}
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
+              />
+            </div>
 
             <div>
               <button
