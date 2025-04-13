@@ -12,7 +12,7 @@ export default function SignUp() {
 
   const [formData, setFormData] = useState({
     companyName: "",
-    username: "",
+    userName: "",
     email: "",
     password: "",
     description: "",
@@ -21,7 +21,7 @@ export default function SignUp() {
   useEffect(() => {
     setFormData({
       companyName: "",
-      username: "",
+      userName: "",
       email: "",
       password: "",
       description: "",
@@ -37,7 +37,7 @@ export default function SignUp() {
     e.preventDefault();
 
     const payload = {
-      username: formData.username || formData.companyName,
+      userName: formData.userName || formData.companyName,
       emailId: formData.email,
       password: formData.password,
       type: accountType,
@@ -176,16 +176,16 @@ export default function SignUp() {
               <>
                 <div>
                   <label
-                    htmlFor="username"
+                    htmlFor="userName"
                     className="block text-sm font-medium text-gray-700"
                   >
                     Username
                   </label>
                   <input
-                    id="username"
-                    name="username"
+                    id="userName"
+                    name="userName"
                     type="text"
-                    value={formData.username}
+                    value={formData.userName}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
