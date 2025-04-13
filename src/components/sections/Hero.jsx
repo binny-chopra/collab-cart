@@ -11,10 +11,10 @@ const Hero = () => {
             the perfect marketing collaborators.
           </p>
           <div className="flex gap-4">
-            <button className="px-4 py-2 bg-white text-black rounded">
+            <button className="px-4 py-2 bg-white text-black rounded hover:bg-gray-100 cursor-pointer">
               Join as Influencer
             </button>
-            <button className="px-4 py-2 bg-white text-black rounded">
+            <button className="px-4 py-2 bg-white text-black rounded hover:bg-gray-100 cursor-pointer">
               Join as Company
             </button>
           </div>

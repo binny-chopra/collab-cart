@@ -34,25 +34,25 @@ const Navbar = () => {
         </a>
         <button
           onClick={handleLoginClick}
-          className="text-sm px-3 py-1 border rounded hover:bg-gray-100"
+          className="text-sm px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer"
         >
           Log In
         </button>
         <button
           onClick={handleSignupClick}
-          className="text-sm px-3 py-1 bg-purple-600 text-white rounded hover:bg-purple-700"
+          className="text-sm px-3 py-1 bg-purple-600 text-white rounded hover:bg-purple-700 cursor-pointer"
         >
           Sign Up
         </button>
         <button
           onClick={handleIdashboardClick}
-          className="text-sm px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700"
+          className="text-sm px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700 cursor-pointer"
         >
           IDashboard
         </button>
         <button
           onClick={handleCdashboardClick}
-          className="text-sm px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700"
+          className="text-sm px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700 cursor-pointer"
         >
           CDashboard
         </button>
