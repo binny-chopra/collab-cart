@@ -35,7 +35,7 @@ const Navbar = () => {
         >
           Sign Up
         </button>
-        <button
+        {/* <button
           onClick={handleIdashboardClick}
           className="text-sm px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700 cursor-pointer"
         >
@@ -46,7 +46,7 @@ const Navbar = () => {
           className="text-sm px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700 cursor-pointer"
         >
           CDashboard
-        </button>
+        </button> */}
       </div>
     </nav>
   );
