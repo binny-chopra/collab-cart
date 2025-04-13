@@ -4,19 +4,18 @@ const ActiveCampaigns = () => {
       name: "Summer Collection Launch",
       description: "Fashion influencers promoting our summer line",
       budget: "$5,000",
-      influencers: "5 influencers",
+
     },
     {
       name: "Product Review Campaign",
       description: "Tech reviewers building on new gadget",
       budget: "$3,500",
-      influencers: "3 influencers",
+
     },
     {
       name: "Brand Awareness",
       description: "Lifestyle influencers sharing our brand story",
       budget: "$2,900",
-      influencers: "7 influencers",
     },
   ];
 
@@ -33,7 +32,7 @@ const ActiveCampaigns = () => {
             <p className="text-sm text-gray-600">{campaign.description}</p>
             <div className="flex justify-between text-sm mt-1">
               <span>Budget: {campaign.budget}</span>
-              <span>{campaign.influencers}</span>
+           
             </div>
           </div>
         ))}
