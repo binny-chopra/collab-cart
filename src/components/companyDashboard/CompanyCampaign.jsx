@@ -26,12 +26,7 @@ const Campaigns = () => {
     <div className="bg-white p-6 rounded-lg shadow mt-6">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Active Campaigns</h2>
-        <Link
-          to="create"
-          className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
-        >
-          Create Campaign
-        </Link>
+
       </div>
 
       <p className="text-sm text-gray-600 mb-4">
@@ -57,7 +52,7 @@ const Campaigns = () => {
               </div>
             </div>
             <button className="border border-gray-300 text-sm px-4 py-1 rounded-md hover:bg-gray-100">
-              Manage
+              Find Influencer
             </button>
           </div>
         ))}
