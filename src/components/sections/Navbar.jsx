@@ -23,15 +23,6 @@ const Navbar = () => {
     <nav className="flex justify-between items-center py-4 px-6 shadow-sm">
       <div className="text-lg font-bold">CollabCart</div>
       <div className="space-x-4">
-        <a href="#" className="text-sm hover:underline">
-          About
-        </a>
-        <a href="#" className="text-sm hover:underline">
-          Pricing
-        </a>
-        <a href="#" className="text-sm hover:underline">
-          Contact
-        </a>
         <button
           onClick={handleLoginClick}
           className="text-sm px-3 py-1 border rounded hover:bg-gray-100 cursor-pointer"
