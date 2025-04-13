@@ -11,13 +11,13 @@ const Navbar = () => {
     navigate("/signup");
   };
 
-  const handleIdashboardClick = () => {
-    navigate("/influencer-dashboard");
-  };
+  // const handleIdashboardClick = () => {
+  //   navigate("/influencer-dashboard");
+  // };
 
-  const handleCdashboardClick = () => {
-    navigate("/company-dashboard");
-  };
+  // const handleCdashboardClick = () => {
+  //   navigate("/company-dashboard");
+  // };
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 shadow-sm">
