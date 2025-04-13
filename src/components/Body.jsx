@@ -6,6 +6,10 @@ import InfluencerDashboard from "./influencerDashboard/InfluencerDashboard";
 import CompanyDashboard from "./companyDashboard/CompanyDashboard";
 import CompanyProfile from "./companyDashboard/CompanyProfile";
 import CompanyOverview from "./companyDashboard/CompanyOverview";
+import Overview from "./influencerDashboard/Overview";
+import ProfilePage from "./influencerDashboard/ProfilePage";
+import SocialAccounts from "./influencerDashboard/SocialAccounts";
+import Opportunities from "./influencerDashboard/Opportunities";
 
 const appRouter = createBrowserRouter([
   {
@@ -23,17 +27,35 @@ const appRouter = createBrowserRouter([
   {
     path: "/influencer-dashboard",
     element: <InfluencerDashboard />,
+    children: [
+      {
+        index: true,
+        element: <Overview />,
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />,
+      },
+      {
+        path: "social-accounts",
+        element: <SocialAccounts />,
+      },
+      {
+        path: "opportunities",
+        element: <Opportunities />,
+      },
+    ],
   },
   {
     path: "/company-dashboard",
     element: <CompanyDashboard />,
     children: [
       {
-        index: true, // ✅ when path === /company-dashboard
-        element: <CompanyOverview />, // ✅ shows all three sections
+        index: true,
+        element: <CompanyOverview />,
       },
       {
-        path: "profile", // becomes /company-dashboard/profile
+        path: "profile",
         element: <CompanyProfile />,
       },
     ],
