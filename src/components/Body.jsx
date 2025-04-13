@@ -12,6 +12,7 @@ import Overview from "./influencerDashboard/Overview";
 import ProfilePage from "./influencerDashboard/ProfilePage";
 import SocialAccounts from "./influencerDashboard/SocialAccounts";
 import Opportunities from "./influencerDashboard/Opportunities";
+import FindInfluencers from "./companyDashboard/FindInfluencers";
 
 const appRouter = createBrowserRouter([
   {
@@ -65,8 +66,12 @@ const appRouter = createBrowserRouter([
         element: <CompanyCampaign />,
       },
       {
-        path: "campaigns/create", 
+        path: "campaigns/create",
         element: <CreateCampaign />,
+      },
+      {
+        path: "findInfluencers",
+        element: <FindInfluencers />,
       },
     ],
   },

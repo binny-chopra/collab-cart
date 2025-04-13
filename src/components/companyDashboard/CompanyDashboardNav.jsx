@@ -53,7 +53,18 @@ const CompanyDashboardNav = () => {
         Create Campaign
       </NavLink>
 
-
+      <NavLink
+        to="/company-dashboard/findInfluencers"
+        className={({ isActive }) =>
+          `px-3 py-2 text-sm font-medium ${
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600"
+              : "text-gray-500 hover:text-gray-700"
+          }`
+        }
+      >
+        Find Influencers
+      </NavLink>
     </nav>
   );
 };
