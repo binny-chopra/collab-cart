@@ -15,10 +15,29 @@ export default function CompanyProfile() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: connect to API to save profile
-    console.log("Company Profile Submitted:", formData);
+
+    try {
+      const response = await fetch("http://localhost:8080/company/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result) {
+        alert("✅ Company profile saved successfully!");
+      } else {
+        alert("❌ Failed to save profile.");
+      }
+    } catch (err) {
+      console.error("Error submitting company profile:", err);
+      alert("🚫 Error occurred while submitting the form.");
+    }
   };
 
   return (
