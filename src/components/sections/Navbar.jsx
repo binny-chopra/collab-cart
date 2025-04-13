@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 shadow-sm">
-      <div className="text-lg font-bold">CollabConnect</div>
+      <div className="text-lg font-bold">CollabCart</div>
       <div className="space-x-4">
         <a href="#" className="text-sm hover:underline">
           About
