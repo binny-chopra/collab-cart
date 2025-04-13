@@ -34,10 +34,29 @@ const ProfilePage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Profile updated:", profile);
+
+    try {
+      const response = await fetch("http://localhost:8080/influencer/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(profile),
+      });
+
+      const result = await response.json();
+
+      if (result) {
+        alert("✅ Influencer profile saved successfully!");
+      } else {
+        alert("❌ Failed to save profile.");
+      }
+    } catch (error) {
+      console.error("Error submitting influencer profile:", error);
+      alert("🚫 Error occurred while submitting the form.");
+    }
   };
 
   return (
@@ -106,25 +125,23 @@ const ProfilePage = () => {
               Content Categories
             </label>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {Object.entries(profile.categories).map(
-                ([category, selected]) => (
-                  <div key={category} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={category}
-                      checked={selected}
-                      onChange={() => toggleCategory(category)}
-                      className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
-                    />
-                    <label
-                      htmlFor={category}
-                      className="ml-2 text-sm text-gray-700 capitalize"
-                    >
-                      {category}
-                    </label>
-                  </div>
-                )
-              )}
+              {Object.entries(profile.categories).map(([category, selected]) => (
+                <div key={category} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id={category}
+                    checked={selected}
+                    onChange={() => toggleCategory(category)}
+                    className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                  />
+                  <label
+                    htmlFor={category}
+                    className="ml-2 text-sm text-gray-700 capitalize"
+                  >
+                    {category}
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
 
