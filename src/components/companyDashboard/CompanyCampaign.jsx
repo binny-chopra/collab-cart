@@ -68,7 +68,12 @@ const Campaigns = () => {
                 </div>
                 </div>
             <button className="border border-gray-300 text-sm px-4 py-1 rounded-md hover:bg-gray-100">
-              Find Influencer
+            <Link
+                to="/company-dashboard/findInfluencers"
+                className="border border-gray-300 text-sm px-4 py-1 rounded-md hover:bg-gray-100 inline-block text-center"
+                >
+                Find Influencer
+                </Link>
             </button>
           </div>
         ))}

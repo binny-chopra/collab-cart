@@ -11,7 +11,7 @@ const FindInfluencers = () => {
       setInfluencers([
         {
           id: 1,
-          name: "Influencer #1",
+          name: "Binny Chopra",
           category: "Fashion & Lifestyle",
           followers: "120K",
           engagement: "4.5%",
@@ -20,7 +20,7 @@ const FindInfluencers = () => {
         },
         {
           id: 2,
-          name: "Influencer #2",
+          name: "Saanya Dhir",
           category: "Beauty & Skincare",
           followers: "250K",
           engagement: "3.8%",
@@ -29,7 +29,7 @@ const FindInfluencers = () => {
         },
         {
           id: 3,
-          name: "Influencer #3",
+          name: "Emily",
           category: "Tech & Gaming",
           followers: "85K",
           engagement: "5.2%",
@@ -38,7 +38,7 @@ const FindInfluencers = () => {
         },
         {
           id: 4,
-          name: "Influencer #4",
+          name: "Jacob",
           category: "Food & Cooking",
           followers: "180K",
           engagement: "6.1%",
@@ -46,7 +46,7 @@ const FindInfluencers = () => {
         },
         {
           id: 5,
-          name: "Influencer #5",
+          name: "Kyra",
           category: "Fitness & Health",
           followers: "320K",
           engagement: "4.2%",
@@ -54,7 +54,7 @@ const FindInfluencers = () => {
         },
         {
           id: 6,
-          name: "Influencer #6",
+          name: "Wanderwithsky",
           category: "Travel",
           followers: "420K",
           engagement: "3.5%",
