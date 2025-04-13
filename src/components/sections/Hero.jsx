@@ -1,4 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleInfluencerClick = () => {
+    navigate("/signup?role=influencer");
+  };
+
+  const handleCompanyClick = () => {
+    navigate("/signup?role=company");
+  };
+
   return (
     <section className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white px-6 py-16">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
@@ -11,10 +23,16 @@ const Hero = () => {
             the perfect marketing collaborators.
           </p>
           <div className="flex gap-4">
-            <button className="px-4 py-2 bg-white text-black rounded hover:bg-gray-100 cursor-pointer">
+            <button
+              onClick={handleInfluencerClick}
+              className="px-4 py-2 bg-white text-black rounded hover:bg-gray-100 cursor-pointer transition-colors duration-200"
+            >
               Join as Influencer
             </button>
-            <button className="px-4 py-2 bg-white text-black rounded hover:bg-gray-100 cursor-pointer">
+            <button
+              onClick={handleCompanyClick}
+              className="px-4 py-2 bg-white text-black rounded hover:bg-gray-100 cursor-pointer transition-colors duration-200"
+            >
               Join as Company
             </button>
           </div>

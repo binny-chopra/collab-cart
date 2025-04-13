@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function SignUp() {
-  const [accountType, setAccountType] = useState("company");
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const role = searchParams.get("role");
+
+  // Set initial account type based on URL parameter
+  const [accountType, setAccountType] = useState(
+    role === "influencer" ? "influencer" : "company"
+  );
 
   const [formData, setFormData] = useState({
     companyName: "",
@@ -30,7 +37,10 @@ export default function SignUp() {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-start px-4 sm:px-0">
-          <Link to="/" className="text-gray-600 hover:text-gray-800 transition-colors duration-200">
+          <Link
+            to="/"
+            className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -38,28 +48,47 @@ export default function SignUp() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             <span className="sr-only">Back</span>
           </Link>
         </div>
 
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create an account</h2>
-        <p className="mt-2 text-center text-sm text-gray-600">Enter your information to create an account</p>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Create an account
+        </h2>
+        <p className="mt-2 text-center text-sm text-gray-600">
+          Enter your information to create an account
+        </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <div className="flex justify-center space-x-4 mb-6">
             <button
+              type="button"
               onClick={() => setAccountType("influencer")}
-              className={`px-4 py-2 border rounded-md font-medium ${accountType === "influencer" ? "bg-purple-600 text-white" : ""}`}
+              className={`px-4 py-2 border rounded-md font-medium ${
+                accountType === "influencer"
+                  ? "bg-purple-600 text-white"
+                  : "bg-white text-gray-700"
+              }`}
             >
               Influencer
             </button>
             <button
+              type="button"
               onClick={() => setAccountType("company")}
-              className={`px-4 py-2 border rounded-md font-medium ${accountType === "company" ? "bg-purple-600 text-white" : ""}`}
+              className={`px-4 py-2 border rounded-md font-medium ${
+                accountType === "company"
+                  ? "bg-purple-600 text-white"
+                  : "bg-white text-gray-700"
+              }`}
             >
               Company
             </button>
@@ -75,7 +104,10 @@ export default function SignUp() {
             {accountType === "company" ? (
               <>
                 <div>
-                  <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="companyName"
+                    className="block text-sm font-medium text-gray-700"
+                  >
                     Company Name
                   </label>
                   <input
@@ -85,11 +117,14 @@ export default function SignUp() {
                     value={formData.companyName}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
                     Business Email
                   </label>
                   <input
@@ -99,14 +134,17 @@ export default function SignUp() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
                   />
                 </div>
               </>
             ) : (
               <>
                 <div>
-                  <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="username"
+                    className="block text-sm font-medium text-gray-700"
+                  >
                     Username
                   </label>
                   <input
@@ -116,11 +154,14 @@ export default function SignUp() {
                     value={formData.username}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
                     Email
                   </label>
                   <input
@@ -130,14 +171,17 @@ export default function SignUp() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
                   />
                 </div>
               </>
             )}
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <input
@@ -148,27 +192,35 @@ export default function SignUp() {
                 onChange={handleChange}
                 required
                 minLength={6}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
               />
             </div>
 
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-purple-600 text-white rounded-md shadow hover:bg-purple-700"
+                className="w-full py-2 px-4 bg-purple-600 text-white rounded-md shadow hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
               >
-                {accountType === "company" ? "Create Company Account" : "Create Influencer Account"}
+                {accountType === "company"
+                  ? "Create Company Account"
+                  : "Create Influencer Account"}
               </button>
             </div>
           </form>
 
           <div className="mt-6 text-center text-xs text-gray-500">
-            <p>By clicking continue, you agree to our Terms of Service and Privacy Policy.</p>
+            <p>
+              By clicking continue, you agree to our Terms of Service and
+              Privacy Policy.
+            </p>
           </div>
 
           <div className="mt-6 text-center text-sm">
             <span className="text-gray-600">Already have an account? </span>
-            <Link to="/signin" className="text-purple-600 hover:text-purple-500">
+            <Link
+              to="/signin"
+              className="text-purple-600 hover:text-purple-500"
+            >
               Log in
             </Link>
           </div>
