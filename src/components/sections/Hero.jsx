@@ -38,7 +38,11 @@ const Hero = () => {
           </div>
         </div>
         <div className="relative">
-          <div className="bg-white rounded-lg h-40" />
+          <img
+            src="https://cdn.shopify.com/s/files/1/0070/7032/articles/best_2520influencer_2520marketing_2520platforms_fcf68482-b574-4215-abf0-81e6bc586fcb.png?v=1742415776&originalWidth=1848&originalHeight=782&width=1800"
+            alt="Influence"
+            className="w-full h-64 object-cover rounded-lg shadow-lg"
+          />
           <span className="absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
             New!
           </span>
