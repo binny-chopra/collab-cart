@@ -6,6 +6,8 @@ import InfluencerDashboard from "./influencerDashboard/InfluencerDashboard";
 import CompanyDashboard from "./companyDashboard/CompanyDashboard";
 import CompanyProfile from "./companyDashboard/CompanyProfile";
 import CompanyOverview from "./companyDashboard/CompanyOverview";
+import CompanyCampaign from "./companyDashboard/CompanyCampaign";
+import CreateCampaign from "./companyDashboard/CreateCampaign";
 import Overview from "./influencerDashboard/Overview";
 import ProfilePage from "./influencerDashboard/ProfilePage";
 import SocialAccounts from "./influencerDashboard/SocialAccounts";
@@ -57,6 +59,14 @@ const appRouter = createBrowserRouter([
       {
         path: "profile",
         element: <CompanyProfile />,
+      },
+      {
+        path: "campaign",
+        element: <CompanyCampaign />,
+      },
+      {
+        path: "campaigns/create", // ✅ New route
+        element: <CreateCampaign />,
       },
     ],
   },

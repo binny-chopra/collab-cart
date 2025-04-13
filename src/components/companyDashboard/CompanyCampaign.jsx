@@ -1,0 +1,69 @@
+import { Link } from "react-router-dom";
+
+const Campaigns = () => {
+  const campaigns = [
+    {
+      name: "Summer Collection Launch",
+      description: "Fashion influencers promoting our summer line",
+      budget: "$5,000",
+      influencers: 5,
+    },
+    {
+      name: "Product Review Campaign",
+      description: "Tech reviewers testing our new gadget",
+      budget: "$3,000",
+      influencers: 3,
+    },
+    {
+      name: "Brand Awareness",
+      description: "Lifestyle influencers sharing our brand story",
+      budget: "$2,500",
+      influencers: 4,
+    },
+  ];
+
+  return (
+    <div className="bg-white p-6 rounded-lg shadow mt-6">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-xl font-semibold">Active Campaigns</h2>
+        <Link
+          to="create"
+          className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700"
+        >
+          Create Campaign
+        </Link>
+      </div>
+
+      <p className="text-sm text-gray-600 mb-4">
+        Manage your ongoing marketing campaigns.
+      </p>
+
+      <div className="space-y-4">
+        {campaigns.map((campaign, index) => (
+          <div
+            key={index}
+            className="border p-4 rounded-lg shadow-sm flex justify-between items-center"
+          >
+            <div>
+              <h3 className="font-medium text-lg">{campaign.name}</h3>
+              <p className="text-sm text-gray-600">{campaign.description}</p>
+              <div className="flex gap-4 mt-2 text-sm">
+                <span className="text-green-600 font-semibold">
+                  Budget: {campaign.budget}
+                </span>
+                <span className="text-blue-600 underline cursor-pointer">
+                  {campaign.influencers} Influencers
+                </span>
+              </div>
+            </div>
+            <button className="border border-gray-300 text-sm px-4 py-1 rounded-md hover:bg-gray-100">
+              Manage
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Campaigns;
