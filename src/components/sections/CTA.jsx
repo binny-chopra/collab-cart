@@ -23,7 +23,14 @@ const CTA = () => {
             Sign Up Now →
           </button>
         </div>
-        <div className="bg-white h-40 rounded-lg" />
+        <div className="relative">
+          {/* Replaced white box with direct image URL */}
+          <img
+            src="https://www.socialpilot.co/wp-content/uploads/2024/02/Influencer-Marketing-Statistics-1024x651.jpg"
+            alt="Influencer marketing statistics"
+            className="w-full h-64 object-cover rounded-lg shadow-lg"
+          />
+        </div>
       </div>
     </section>
   );
