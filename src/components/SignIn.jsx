@@ -1,8 +1,60 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
   const [accountType, setAccountType] = useState("company");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      emailId: formData.email,
+      password: formData.password,
+      type: accountType, // ✅ send user role as "type"
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Login failed");
+
+      const user = await response.json();
+
+      if (user && user.emailId) {
+        alert("✅ Login successful!");
+        localStorage.setItem("user", JSON.stringify(user));
+
+        // ✅ Redirect based on type
+        if (user.type === "influencer") {
+          navigate("/influencer-dashboard");
+        } else {
+          navigate("/company-dashboard");
+        }
+      } else {
+        alert("❌ Invalid credentials or role. Please try again.");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("🚫 Error connecting to server.");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -61,7 +113,7 @@ export default function SignIn() {
             </button>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="email"
@@ -73,14 +125,15 @@ export default function SignIn() {
                 id="email"
                 name="email"
                 type="email"
-                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
                 placeholder={
                   accountType === "company"
                     ? "yourcompany@example.com"
                     : "influencer@example.com"
                 }
-                required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
               />
             </div>
 
@@ -103,7 +156,8 @@ export default function SignIn() {
                 id="password"
                 name="password"
                 type="password"
-                autoComplete="current-password"
+                value={formData.password}
+                onChange={handleChange}
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2"
               />
@@ -121,23 +175,15 @@ export default function SignIn() {
             </div>
           </form>
 
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">
-                  Don't have an account?{" "}
-                  <Link
-                    to="/signup"
-                    className="text-indigo-600 hover:text-indigo-500"
-                  >
-                    Sign up
-                  </Link>
-                </span>
-              </div>
-            </div>
+          <div className="mt-6 text-center text-xs text-gray-500">
+            <p>By signing in, you agree to our Terms of Service and Privacy Policy.</p>
+          </div>
+
+          <div className="mt-6 text-center text-sm">
+            <span className="text-gray-600">Don't have an account? </span>
+            <Link to="/signup" className="text-indigo-600 hover:text-indigo-500">
+              Sign up
+            </Link>
           </div>
         </div>
       </div>

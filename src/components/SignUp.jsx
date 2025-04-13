@@ -6,7 +6,6 @@ export default function SignUp() {
   const searchParams = new URLSearchParams(location.search);
   const role = searchParams.get("role");
 
-  // Set initial account type based on URL parameter
   const [accountType, setAccountType] = useState(
     role === "influencer" ? "influencer" : "company"
   );
@@ -18,7 +17,6 @@ export default function SignUp() {
     password: "",
   });
 
-  // Reset form when switching account type
   useEffect(() => {
     setFormData({
       companyName: "",
@@ -31,6 +29,39 @@ export default function SignUp() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      username: formData.username || formData.companyName,
+      emailId: formData.email,
+      password: formData.password,
+      type: accountType,
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result) {
+        alert("✅ Account created successfully!");
+        // Optional: redirect or reset form
+      } else {
+        alert("❌ Registration failed. Try again.");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("🚫 Error occurred while connecting to the server.");
+    }
   };
 
   return (
@@ -100,7 +131,7 @@ export default function SignUp() {
               : "Create your influencer profile to discover new brand opportunities"}
           </p>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             {accountType === "company" ? (
               <>
                 <div>
