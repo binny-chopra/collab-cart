@@ -65,7 +65,7 @@ const appRouter = createBrowserRouter([
         element: <CompanyCampaign />,
       },
       {
-        path: "campaigns/create", // ✅ New route
+        path: "campaigns/create", 
         element: <CreateCampaign />,
       },
     ],

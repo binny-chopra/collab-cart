@@ -41,7 +41,7 @@ const CompanyDashboardNav = () => {
         Campaigns
       </NavLink>
       <NavLink
-        to="/company-dashboard/find-influencers"
+        to="/company-dashboard/campaigns/create"
         className={({ isActive }) =>
           `px-3 py-2 text-sm font-medium ${
             isActive
@@ -50,8 +50,10 @@ const CompanyDashboardNav = () => {
           }`
         }
       >
-        Find Influencers
+        Create Campaign
       </NavLink>
+
+
     </nav>
   );
 };
