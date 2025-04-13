@@ -2,15 +2,15 @@ import { useState } from "react";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
-    fullName: "John Doe",
-    email: "john@example.com",
-    bio: "Fashion and lifestyle content creator based in New York. I love sharing my daily outfits and lifestyle tips.",
-    location: "New York, USA",
-    priceRange: "$500-$1000",
+    fullName: "",
+    email: "",
+    bio: "",
+    location: "",
+    priceRange: "",
     categories: {
-      fashion: true,
-      lifestyle: true,
-      beauty: true,
+      fashion: false,
+      lifestyle: false,
+      beauty: false,
       travel: false,
       food: false,
       fitness: false,
