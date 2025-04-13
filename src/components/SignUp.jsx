@@ -15,6 +15,7 @@ export default function SignUp() {
     username: "",
     email: "",
     password: "",
+    description: "",
   });
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function SignUp() {
       username: "",
       email: "",
       password: "",
+      description: "",
     });
   }, [accountType]);
 
@@ -39,6 +41,7 @@ export default function SignUp() {
       emailId: formData.email,
       password: formData.password,
       type: accountType,
+      description: formData.description,
     };
 
     try {
@@ -220,6 +223,25 @@ export default function SignUp() {
                 name="password"
                 type="password"
                 value={formData.password}
+                onChange={handleChange}
+                required
+                minLength={6}
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="description"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Description
+              </label>
+              <input
+                id="description"
+                name="description"
+                type="description"
+                value={formData.description}
                 onChange={handleChange}
                 required
                 minLength={6}

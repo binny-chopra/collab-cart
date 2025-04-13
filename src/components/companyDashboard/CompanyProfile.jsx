@@ -30,7 +30,10 @@ export default function CompanyProfile() {
 
       <form className="space-y-6" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="companyName"
+            className="block text-sm font-medium text-gray-700"
+          >
             Company Name
           </label>
           <input
@@ -44,7 +47,10 @@ export default function CompanyProfile() {
         </div>
 
         <div>
-          <label htmlFor="website" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="website"
+            className="block text-sm font-medium text-gray-700"
+          >
             Website
           </label>
           <input
@@ -59,7 +65,10 @@ export default function CompanyProfile() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="industry" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="industry"
+              className="block text-sm font-medium text-gray-700"
+            >
               Industry
             </label>
             <input
@@ -73,7 +82,10 @@ export default function CompanyProfile() {
           </div>
 
           <div>
-            <label htmlFor="companySize" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="companySize"
+              className="block text-sm font-medium text-gray-700"
+            >
               Company Size
             </label>
             <select
@@ -94,7 +106,10 @@ export default function CompanyProfile() {
         </div>
 
         <div>
-          <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="location"
+            className="block text-sm font-medium text-gray-700"
+          >
             Headquarters Location
           </label>
           <input
@@ -108,7 +123,27 @@ export default function CompanyProfile() {
         </div>
 
         <div>
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium text-gray-700"
+          >
             Company Description
           </label>
           <textarea
